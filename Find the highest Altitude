@@ -1,0 +1,9 @@
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        new=[0]*(len(gain)+1)
+        
+        for i in range(len(gain)):
+            new[i+1]=new[i]+gain[i]
+        return max(new)
+Runtime: 36 ms, faster than 69.31% of Python3 online submissions for Find the Highest Altitude.
+Memory Usage: 14.1 MB, less than 87.42% of Python3 online submissions for Find the Highest Altitude.
