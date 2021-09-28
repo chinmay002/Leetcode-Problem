@@ -1,0 +1,5 @@
+class Solution:
+    def busyStudent(self, s: List[int], e: List[int], q: int) -> int:
+        return sum((s[i] <= q  <=e[i]) for i in range(len(s)))    
+Runtime: 28 ms, faster than 98.99% of Python3 online submissions for Number of Students Doing Homework at a Given Time.
+Memory Usage: 14.1 MB, less than 82.71% of Python3 online submissions for Number of Students Doing Homework at a Given Time.
