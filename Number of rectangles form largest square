@@ -1,0 +1,7 @@
+class Solution:
+    def countGoodRectangles(self, rectangles: List[List[int]]) -> int:
+        small = [rect[0] if rect[0]<rect[1]  else rect[1] for rect in rectangles ]
+        return small.count(max(small))
+
+Runtime: 184 ms, faster than 79.39% of Python3 online submissions for Number Of Rectangles That Can Form The Largest Square.
+Memory Usage: 15.1 MB, less than 10.31% of Python3 online submissions for Number Of Rectangles That Can Form The Largest Square.
