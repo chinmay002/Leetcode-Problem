@@ -1,0 +1,72 @@
+#DOUBLY LINKED LIST
+class Node():
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+        self.previous = None
+class DLL():
+    def __init__(self):
+        self.head = None
+        self.tail = None
+   
+    #This operation inserts data in end of DLL, SO we manipulate tail node in 0(1)
+    def insert(self,data):
+        
+        new_node=Node(data)
+        
+        #check for empty list
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        
+        else:                             #there is atleast 1 item
+            new_node.previous = self.tail
+            self.tail.next = new_node
+            self.tail = new_node
+    
+    def insert_start(self,data):
+        new_node=Node(data)
+        
+        #check for empty list
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        
+        else:
+            new_node.next=self.head
+            self.head.previous = new_node
+            self.head = new_node
+        
+    
+    def traverse_forward(self):
+        
+        temp = self.head
+        while temp is not None:
+            print('temp data is ',temp.data)
+            temp=temp.next
+           
+    
+    def traverse_backward(self):
+        
+        temp = self.tail
+        while temp is not None:
+            
+            print('temp data is ',temp.data)
+            temp=temp.previous
+    
+    def find_middle(self):
+        temp_first = self.head
+        temp_sec = self.head
+        
+        while temp_sec is not None:
+            print('first',temp_first.data)
+            temp_first =temp_first.next
+            print('second',temp_sec.data)
+            temp_sec = temp_sec.next
+            print('second',temp_sec.data)
+            temp_sec = temp_sec.next
+            
+        
+        if temp_sec is None:
+            print(temp_first.data)
+            
