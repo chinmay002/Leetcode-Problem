@@ -1,0 +1,23 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        
+        prev = None
+        temp = head
+        
+        while temp is not None:  #loop till end of list
+            
+            if temp.val != val:   #check val ==val
+                    prev = temp   #if no, inc prev to temp and contorl goes to temp =temp.next
+            else:
+                if prev:          #if prev is not none(ie val found after 1st number)
+                    prev.next = temp.next #cut the link of temp and assign temp.next to prev.next
+                else:
+                    head = temp.next #if val found to be 1st elemsnt. head starts at 2nd elemet
+                 
+            temp = temp.next
+        return head
