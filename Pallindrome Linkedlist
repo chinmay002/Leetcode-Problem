@@ -1,0 +1,38 @@
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        
+        if not head.next:
+            return True
+        
+        ## Find the middle element 
+        fast = head
+        slow = head
+        prevs = None
+        while fast != None and fast.next != None:
+            prevs = slow
+            slow = slow.next
+            fast = fast.next.next
+        prevs.next = None          # Make next of middle element = None
+        
+        ## Reversing the other half of the linkedlist    
+        prev = None
+        temp = slow  # new head of the 2nd half of LL
+        while temp != None:
+            n = temp.next
+            temp.next = prev
+            prev = temp
+            temp = n
+            
+        head1 = prev   # head node of reversed list
+        
+        # Comparing the element from both list
+        while head != None and head1 != None: 
+            if head.val != head1.val:
+                return False
+            head = head.next
+            head1 = head1.next
+        return True
+
+Runtime: 792 ms, faster than 75.49% of Python3 online submissions for Palindrome Linked List.
+Memory Usage: 39.3 MB, less than 77.68%
+ of Python3 online submissions for Palindrome Linked Lis
