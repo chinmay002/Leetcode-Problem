@@ -1,0 +1,13 @@
+Runtime: 76 ms, faster than 24.76% of Python3 online submissions for Final Prices With a Special Discount in a Shop.
+Memory Usage: 14.3 MB, less than 50.29% of Python3 online submissions for Final Prices With a Special Discount in a Shop.
+
+class Solution:
+    def finalPrices(self, prices: List[int]) -> List[int]:
+        
+        stack =[]
+        for i in range(len(prices)):
+            while stack and prices[stack[-1]]>=prices[i]:
+                prices[stack.pop()]-= prices[i]
+            
+            stack.append(i)
+        return prices    
