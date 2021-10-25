@@ -1,0 +1,13 @@
+class Solution:
+    def countStudents(self, stud: List[int], sa: List[int]) -> int:
+        j=0
+        while j!=len(stud):
+            if(stud[0]==sa[0]):
+                j=0
+                stud.pop(0)
+                sa.pop(0)
+            else:
+                j+=1
+                g=stud.pop(0)
+                stud.append(g)
+        return len(stud)
